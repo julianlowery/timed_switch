@@ -1,6 +1,9 @@
 #include <Time.h>
 #include <TimeLib.h>
 
+//TEST
+int led_pin = 4;
+
 typedef enum{
   WAIT,
   TURN_ON,
@@ -13,10 +16,10 @@ typedef enum{
 }state_t;
 
 // constants
-int HOUR_TIME_ON = 0;
-int MINUTE_TIME_ON = 0;
-int HOUR_TIME_OFF = 0;
-int MINUTE_TIME_OFF = 0;
+int HOUR_TIME_ON = 18;
+int MINUTE_TIME_ON = 1;
+int HOUR_TIME_OFF = 18;
+int MINUTE_TIME_OFF = 2;
 
 // Functions
 void turn_on();
@@ -32,6 +35,9 @@ int _day = 0;
 int _month = 1;
 int _year = 2019;
 setTime(_hr, _min, _sec, _day, _month, _year);
+
+// TEST
+pinMode(led_pin, OUTPUT);
 }
 
 // globals
@@ -49,13 +55,13 @@ void loop() {
 
 void turn_on(){
 
-
+  digitalWrite(led_pin, HIGH);
   current_state = ON;
 }
 
 void turn_off(){
 
-
+  digitalWrite(led_pin, LOW);
   current_state = OFF;
 }
 
