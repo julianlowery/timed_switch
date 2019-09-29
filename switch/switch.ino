@@ -54,7 +54,7 @@ void setup() {
 }
 
 // globals
-state_t current_state = ON;
+state_t current_state = OFF;
 
 
 // main loop
