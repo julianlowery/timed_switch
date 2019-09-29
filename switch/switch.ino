@@ -23,10 +23,10 @@ enum {
 };
 
 // time settings
-int hour_time_on = 23;
-int minute_time_on = 0;
+int hour_time_on = 5;
+int minute_time_on = 30;
 int hour_time_off = 5;
-int minute_time_off = 1;
+int minute_time_off = 31;
 
 // Function prototypes
 void turn_on();
@@ -54,7 +54,7 @@ void setup() {
 }
 
 // globals
-state_t current_state = OFF;
+state_t current_state = ON;
 
 
 // main loop
@@ -70,7 +70,7 @@ void loop() {
 
 //~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~ FUNCTION DEFINITIONS ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 void turn_on() {
-  for (int i = 0; i < 300; i++) {
+  for (int i = 0; i < 200; i++) {
     step_once(forward);
     delay(10);
   }
@@ -79,7 +79,7 @@ void turn_on() {
 }
 
 void turn_off() {
-  for (int i = 0; i < 300; i++) {
+  for (int i = 0; i < 200; i++) {
     step_once(backward);
     delay(10);
   }
