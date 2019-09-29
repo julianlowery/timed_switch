@@ -22,11 +22,14 @@ enum {
   forward
 };
 
-// time settings
+// time settings. should add a time_of_day struct to organize this
 int hour_time_on = 5;
 int minute_time_on = 30;
+int second_time_on = 0;
+
 int hour_time_off = 5;
-int minute_time_off = 31;
+int minute_time_off = 30;
+int second_time_off = 4;
 
 // Function prototypes
 void turn_on();
@@ -90,10 +93,11 @@ void turn_off() {
 status_t get_status() {
   int current_hour = hour();
   int current_minute = minute();
+  int current_second = second();
 
-  if (current_hour == hour_time_on && current_minute == minute_time_on)
+  if (current_hour == hour_time_on && current_minute == minute_time_on && current_second == second_time_on)
     return TURN_ON;
-  else if (current_hour == hour_time_off && current_minute == minute_time_off)
+  else if (current_hour == hour_time_off && current_minute == minute_time_off && current_second == second_time_off)
     return TURN_OFF;
   else
     return WAIT;
